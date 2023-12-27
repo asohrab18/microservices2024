@@ -9,6 +9,7 @@ import com.microservices.bean.CurrencyConversion;
 @FeignClient(name = "feign-exchange", url = "http://localhost:8000")
 public interface ExchangeCurrencyProxy {
 
+	/**Note: This method name can be different from method name of another microservice (exchange-currency-service).*/
 	@GetMapping("exchange-currency/from/{from}/to/{to}")
-	CurrencyConversion getExchangeCurrency(@PathVariable String from, @PathVariable String to);
+	CurrencyConversion getExchange(@PathVariable String from, @PathVariable String to);
 }

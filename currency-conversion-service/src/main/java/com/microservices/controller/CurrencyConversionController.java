@@ -41,7 +41,7 @@ public class CurrencyConversionController {
 	public CurrencyConversion calculateCurrencyConversionFeign(@PathVariable String from, @PathVariable String to,
 			@PathVariable BigDecimal quantity) {
 		
-		CurrencyConversion cc = proxy.getExchangeCurrency(from, to);
+		CurrencyConversion cc = proxy.getExchange(from, to);
 		return new CurrencyConversion(cc.getId(), from, to, quantity, cc.getConversionMultiple(),
 				quantity.multiply(cc.getConversionMultiple()), cc.getEnvironmentPort() + " using Feign");
 	}
