@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.microservices.bean.CurrencyConversion;
+import com.microservices.external.model.Limits;
 import com.microservices.feign.ExchangeCurrencyProxy;
+import com.microservices.feign.LimitsServiceProxy;
 
 @RestController
 @RequestMapping("currency-conversion")
@@ -23,6 +25,9 @@ public class CurrencyConversionController {
 
 	@Autowired
 	private ExchangeCurrencyProxy proxy;
+	
+	@Autowired
+	private LimitsServiceProxy limitsProxy;
 
 	@GetMapping("from/{from}/to/{to}/quantity/{quantity}")
 	public CurrencyConversion calculateCurrencyConversion(@PathVariable String from, @PathVariable String to,
@@ -46,4 +51,9 @@ public class CurrencyConversionController {
 				quantity.multiply(cc.getConversionMultiple()), cc.getEnvironmentPort() + " using Feign");
 	}
 
+	
+	@GetMapping("feign/limits")
+	public Limits showLimits() {
+		return limitsProxy.findLimits();
+	}
 }
