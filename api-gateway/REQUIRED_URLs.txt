@@ -3,12 +3,16 @@ USING API GATEWAY:
 
 Initial: 
 
-NOTE: Here, EXCHANGE-CURRENCY-SERVICE is name of service from EUREKA Server and so on.
+NOTE: Here, EXCHANGE-CURRENCY-SERVICE is the name of service registered with EUREKA Server and so on.
 
 http://localhost:8765/EXCHANGE-CURRENCY-SERVICE/exchange-currency/from/USD/to/INR
-
 http://localhost:8765/CURRENCY-CONVERSION-SERVICE/currency-conversion/from/USD/to/INR/quantity/10
-
 http://localhost:8765/CURRENCY-CONVERSION-SERVICE/currency-conversion/feign/from/USD/to/INR/quantity/10
-
 http://localhost:8765/CURRENCY-CONVERSION-SERVICE/currency-conversion/feign/limits
+
+LOWER CASE URLs: 
+
+http://localhost:8765/exchange-currency-service/exchange-currency/from/USD/to/INR
+http://localhost:8765/currency-conversion-service/currency-conversion/from/USD/to/INR/quantity/10
+http://localhost:8765/currency-conversion-service/currency-conversion/feign/from/USD/to/INR/quantity/10
+http://localhost:8765/currency-conversion-service/currency-conversion/feign/limits
