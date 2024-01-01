@@ -16,3 +16,11 @@ http://localhost:8765/exchange-currency-service/exchange-currency/from/USD/to/IN
 http://localhost:8765/currency-conversion-service/currency-conversion/from/USD/to/INR/quantity/10
 http://localhost:8765/currency-conversion-service/currency-conversion/feign/from/USD/to/INR/quantity/10
 http://localhost:8765/currency-conversion-service/currency-conversion/feign/limits
+
+
+Customized Routes USING API-GATEWAY Configurations:
+
+http://localhost:8765/exchange-currency/from/USD/to/INR
+http://localhost:8765/currency-conversion/from/USD/to/INR/quantity/10
+http://localhost:8765/currency-conversion-new/feign/from/USD/to/INR/quantity/10
+
