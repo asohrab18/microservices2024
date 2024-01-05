@@ -11,3 +11,6 @@ http://localhost:8000/circuit-breaker/sample-api
 
 #Rate Limiter by Resilience4j
 http://localhost:8000/rate-limiter/sample-api
+
+#Bulkhead by Resilience4j
+http://localhost:8000/bulkhead/sample-api
