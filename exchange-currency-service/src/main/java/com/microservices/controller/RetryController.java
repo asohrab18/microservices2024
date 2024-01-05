@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 
 @RestController
-@RequestMapping("circuit-breaker")
-public class CircuitBreakerController {
+@RequestMapping("retry")
+public class RetryController {
 
-	private Logger logger = LoggerFactory.getLogger(CircuitBreakerController.class);
+	private Logger logger = LoggerFactory.getLogger(RetryController.class);
 
 	@GetMapping("sample-api")
-	@CircuitBreaker(name = "my-resource", fallbackMethod = "hardcodedResponse")
+	@Retry(name = "my-resource", fallbackMethod = "hardcodedResponse")
 	public String getSample() {
 		logger.info("=====>my-resource call received.<========");
 		ResponseEntity<String> re = new RestTemplate().getForEntity("http://localhost:8080/dummy-api", String.class);
@@ -25,6 +25,6 @@ public class CircuitBreakerController {
 	}
 
 	public String hardcodedResponse(Exception e) {
-		return "fallback response by Circuit Breaker";
+		return "fallback response after retrying multiple times.";
 	}
 }
