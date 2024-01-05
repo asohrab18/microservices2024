@@ -1,2 +1,6 @@
 http://localhost:8000/h2-console
 http://localhost:8000/exchange-currency/from/USD/to/INR
+
+
+#Circuit Breaker Pattern
+http://localhost:8000/circuit-breaker/sample-api
